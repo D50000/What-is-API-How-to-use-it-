@@ -5,10 +5,10 @@ var request = new XMLHttpRequest();
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true);
 
 request.onload = function () {
-    // Begin accessing JSON data here
+    // Begin accessing JSON data here (object of array)
     var data = JSON.parse(this.response);
 
-    if (request.status >= 200 && request.status < 400) {
+    if (request.status == 200) {
         data.forEach(movie => {
             // Create a div with a card class
             const card = document.createElement('div');
@@ -21,7 +21,7 @@ request.onload = function () {
             // Create a p and set the text content to the film's description
             const p = document.createElement('p');
             movie.description = movie.description.substring(0, 300); // Limit to 300 chars
-            p.textContent = `${movie.description}...`; // End with an ellipses
+            p.textContent = `${movie.description}...`; // End with an ellipses (ES6 template)
 
             // Append the cards to the container element
             container.appendChild(card);
@@ -31,12 +31,13 @@ request.onload = function () {
             card.appendChild(p);
         });
     } else {
-        console.log('error');
+        console.log(`Something Wrong, error code: ${request.status}.`);
     }
 };
 
 // Send request
 request.send();
+
 
 
 const app = document.getElementById('root');
