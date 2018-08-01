@@ -3,8 +3,10 @@ var request = new XMLHttpRequest();
 
 // Open a new connection, using the GET request on the URL endpoint
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true);
+// Send request
+request.send();
 
-request.onload = function () {
+request.onload = function () {  
     // Begin accessing JSON data here (object of array)
     var data = JSON.parse(this.response);
 
@@ -35,8 +37,6 @@ request.onload = function () {
     }
 };
 
-// Send request
-request.send();
 
 
 
