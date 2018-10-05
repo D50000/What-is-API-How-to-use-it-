@@ -9,6 +9,7 @@ A simple note and example for learning what a API is ?
  
 ```
 // Create a request variable and assign a new XMLHttpRequest object to it. It's same as  jQuery $.ajax .
+// new XMLHttpRequset() is XML AJAX Object
 let request = new XMLHttpRequest();
 // Open a new connection, using the GET request on the URL endpoint
 request.open('GET', 'https://api.coinmarketcap.com/v2/ticker/', true);
@@ -31,3 +32,4 @@ request.onload = function () {
 ### Reference:
  - https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/
  - https://medium.freecodecamp.org/javascript-from-callbacks-to-async-await-1cc090ddad99
+ - https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
